@@ -50,7 +50,7 @@ const ProjectView = () => {
       <div className="min-h-screen bg-sidebar flex flex-col items-center justify-center p-6 md:p-16">
         <div className="w-full max-w-sm mx-auto flex flex-col gap-4">
           <div className="flex justify-between gap-4 w-full items-center">
-            <div className="flex justify-between gap-4 w-full items-center group/logo">
+            <div className="flex justify-start gap-4 w-full items-center group/logo">
               <img
                 src="/logo.png"
                 alt="Code-editor"
@@ -58,7 +58,7 @@ const ProjectView = () => {
               />
               <h1
                 className={cn(
-                  "text-4xl md:text-5xl font-semibold",
+                  "text-2xl md:text-3xl font-semibold",
                   font.className,
                 )}
               >
