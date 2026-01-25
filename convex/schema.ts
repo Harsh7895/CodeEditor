@@ -6,6 +6,12 @@ export default defineSchema({
     name: v.string(),
     ownerId: v.string(),
     updatedAt: v.number(),
+    settings: v.optional(
+      v.object({
+        installCommand: v.optional(v.string()),
+        devCommand: v.optional(v.string()),
+      }),
+    ),
     importStatus: v.optional(
       v.union(
         v.literal("importing"),
