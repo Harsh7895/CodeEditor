@@ -57,6 +57,7 @@ export const get = query({
       .collect();
   },
 });
+
 export const getPartial = query({
   args: {
     limit: v.number(),

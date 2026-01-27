@@ -7,6 +7,7 @@ import { FaGithub } from "react-icons/fa";
 import { cn } from "@/lib/utils";
 
 import { Id } from "../../../../convex/_generated/dataModel";
+import FileExplorer from "./file-explorer";
 
 const MIN_SIDEBAR_WIDTH = 200;
 const MAX_SIDEBAR_WIDTH = 800;
@@ -73,8 +74,7 @@ export const ProjectIdView = ({ projectId }: { projectId: Id<"projects"> }) => {
               maxSize={MAX_SIDEBAR_WIDTH}
               preferredSize={DEFAULT_SIDEBAR_WIDTH}
             >
-              File Explorer Placeholder
-              {/* <FileExplorer projectId={projectId} /> */}
+              <FileExplorer projectId={projectId} />
             </Allotment.Pane>
             <Allotment.Pane>
               Editor View Placeholder
