@@ -5,7 +5,7 @@ import { FileBreadcrumbs } from "./file-breadcrumbs";
 import TopNavigation from "./top-navigation";
 import Image from "next/image";
 import CodeEditor from "./code-editor";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 const DEBOUNCE_MS = 1500;
 const EditorView = ({ projectId }: { projectId: Id<"projects"> }) => {
@@ -18,6 +18,15 @@ const EditorView = ({ projectId }: { projectId: Id<"projects"> }) => {
 
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const fileName = activeFile?.name ?? "";
+  // clean up pending debounced updated on unmount or file change
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, [activeTabId]);
+
   return (
     <div className="h-full flex flex-col">
       <div className="flex items-center">

@@ -8,6 +8,9 @@ import { getLanguageExtension } from "../extensions/language-extension";
 import { indentationMarkers } from "@replit/codemirror-indentation-markers";
 import { minimap } from "../extensions/minimap";
 import { customSetup } from "../extensions/custom-setup";
+import { suggestion } from "../extensions/suggestion";
+import { quickEdit } from "../extensions/quick-edit";
+import { selectionTooltip } from "../extensions/selection-tooltip";
 
 const CodeEditor = ({
   fileName,
@@ -35,6 +38,9 @@ const CodeEditor = ({
         customTheme,
         customSetup,
         languageExtension,
+        suggestion(fileName),
+        quickEdit(fileName),
+        selectionTooltip(),
         keymap.of([indentWithTab]),
         minimap(),
         indentationMarkers(),
@@ -51,11 +57,7 @@ const CodeEditor = ({
     return () => view.destroy();
   }, [languageExtension]);
 
-  return (
-    <div ref={editorRef} className="size-full pl-4 bg-background">
-      CodeEditor
-    </div>
-  );
+  return <div ref={editorRef} className="size-full pl-4 bg-background"></div>;
 };
 
 export default CodeEditor;
