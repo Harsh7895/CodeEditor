@@ -3,7 +3,7 @@
 import { Allotment } from "allotment";
 import "allotment/dist/style.css";
 
-import ConversationSidebar from "@/features/conversations/components/conversation-sidebar";
+import { ConversationSidebar } from "@/features/conversations/components/conversation-sidebar";
 
 import { Navbar } from "./navbar";
 import { Id } from "../../../../convex/_generated/dataModel";
